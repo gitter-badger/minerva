@@ -1,0 +1,59 @@
+{
+  "name": "@sisk-technology-group/minerva",
+  "version": "0.0.4",
+  "description": "A command line tool to manage and automate the standard workflows we use.",
+  "main": "dist/minerva.js",
+  "scripts": {
+    "test": "jest --notify",
+    "build": "yarn run clean && tsc",
+    "clean": "rimraf dist"
+  },
+  "preferGlobal": true,
+  "bin": {
+    "minerva": "./dist/minerva"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sisk-technology-group-ltd/minerva.git"
+  },
+  "author": "Simon Skinner <simon@sisk-technology-group.ltd>",
+  "license": "SEE LICENCE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/sisk-technology-group-ltd/minerva/issues"
+  },
+  "homepage": "https://github.com/sisk-technology-group-ltd/minerva#readme",
+  "devDependencies": {
+    "@types/jest": "22.2.3",
+    "@types/node": "10.0.3",
+    "jest": "22.4.3",
+    "prettier": "1.12.1",
+    "rimraf": "2.6.2",
+    "ts-jest": "22.4.4",
+    "typescript": "2.8.3"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "moduleDirectories": [
+      "node_modules"
+    ],
+    "rootDir": "src",
+    "testRegex": ".spec.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "coverageDirectory": "../coverage",
+    "coverageReporters": [
+      "html"
+    ]
+  },
+  "dependencies": {
+    "commander": "2.15.1",
+    "inquirer": "5.2.0",
+    "node-cmd": "3.0.0",
+    "standard-version": "4.3.0"
+  }
+}
