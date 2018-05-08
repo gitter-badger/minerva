@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.1.1"></a>
+## [0.1.1](https://github.com/sisk-technology-group-ltd/minerva/compare/v0.1.0...v0.1.1) (2018-05-08)
+
+
+### Bug Fixes
+
+* **directories:** Moved basic Minerva controllers into a directory called 'Controllers' ([7b7d9c8](https://github.com/sisk-technology-group-ltd/minerva/commit/7b7d9c8))
+
+
+
 <a name="0.1.0"></a>
 # 0.1.0 (2018-05-08)
 
