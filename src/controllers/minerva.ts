@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import {Application} from "../utilities/index";
+import {Application, MinervaUtility} from "../utilities";
 
 class Minerva extends Application {
     public description = '';
@@ -8,7 +8,11 @@ class Minerva extends Application {
     protected async boot(): Promise<void> {
         this.commander
             .command('repo', 'Description Here').alias('r')
-            .command('versioning', 'Description Here').alias('v');
+            .command('versioning', 'Description Here').alias('v')
+            .command('update')
+            .action(async () => {
+                (new MinervaUtility()).outputUpdate();
+            });
     }
 }
 
