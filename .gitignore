@@ -7,8 +7,6 @@
 .settings/
 *.sublime-workspace
 
-dist
-
 # Logs
 logs
 *.log
