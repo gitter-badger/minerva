@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.2.5"></a>
+## [0.2.5](https://github.com/sisk-technology-group-ltd/minerva/compare/v0.2.4...v0.2.5) (2018-05-08)
+
+
+### Bug Fixes
+
+* **object output:** The utility abstract was outputting settings to the console.log this has now been removed. ([db09057](https://github.com/sisk-technology-group-ltd/minerva/commit/db09057))
+* **version number:** Fixed the directory for the version number pull ([3d9d19e](https://github.com/sisk-technology-group-ltd/minerva/commit/3d9d19e))
+
+
+
 <a name="0.2.4"></a>
 ## [0.2.4](https://github.com/sisk-technology-group-ltd/minerva/compare/v0.2.3...v0.2.4) (2018-05-08)
 
