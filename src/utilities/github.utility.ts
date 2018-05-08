@@ -19,6 +19,10 @@ export class GithubUtility extends Utility implements RepoInterface {
         return this.run(`git push --follow-tags origin ${await this.getCurrentBranch()}`);
     }
 
+    public addAll(): Promise<string> {
+        return this.run(`git add -A`)
+    }
+
     protected async getCurrentBranch(): Promise<string> {
         return this.run(`git rev-parse --abbrev-ref HEAD`)
     }

@@ -24,8 +24,12 @@ export class VersioningUtility extends Utility {
         );
     }
 
-    public async publish(): Promise<void> {
+    public async publish(addUncommitted: boolean = false): Promise<void> {
         this.output(await this.run(`${this.packageManager} run minerva:release`));
+
+        if (addUncommitted) {
+            this.output(await this.repo.addAll());
+        }
 
         this.output(await this.repo.push());
 
