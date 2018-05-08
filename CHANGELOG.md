@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.3.0"></a>
+# [0.3.0](https://github.com/sisk-technology-group-ltd/minerva/compare/v0.2.6...v0.3.0) (2018-05-08)
+
+
+### Features
+
+* **choices:** Added the ability to choose from a list of types when adding a new version. ([90c62d9](https://github.com/sisk-technology-group-ltd/minerva/commit/90c62d9))
+* **init script:** The init script now generates a valid .minerva.json file with the appropriate settings. ([f8d3f30](https://github.com/sisk-technology-group-ltd/minerva/commit/f8d3f30))
+
+
+
 <a name="0.2.6"></a>
 ## [0.2.6](https://github.com/sisk-technology-group-ltd/minerva/compare/v0.2.5...v0.2.6) (2018-05-08)
 
