@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import {Application, MinervaUtility} from "../utilities";
+import {ConfigEntity} from "../entities/config.entity";
 
 class Minerva extends Application {
     public description = '';
@@ -22,7 +23,17 @@ class Minerva extends Application {
         this.commander
             .command('init')
             .action(async () => {
-                await (new MinervaUtility()).init();
+
+                const answers = await this.ask([
+                    {
+                        type: 'confirm',
+                        name: 'npmPublish',
+                        message: 'Publish to npmjs.com?',
+                        default: false,
+                    }
+                ]);
+
+                await (new MinervaUtility()).init(answers as ConfigEntity);
             });
     }
 }

@@ -5,5 +5,5 @@ export class QuestionEntity {
     public name: string;
     public message: string;
     public choices?: string[] | QuestionChoiceEntity[];
-    public default?: string;
+    public default?: any;
 }
