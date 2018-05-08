@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.5.0"></a>
+# [0.5.0](https://github.com/sisk-technology-group-ltd/minerva/compare/v0.4.1...v0.5.0) (2018-05-08)
+
+
+### Features
+
+* **checkout branch:** Added the ability to create a new branch from master or a specified branch ([98d11d1](https://github.com/sisk-technology-group-ltd/minerva/commit/98d11d1))
+* **git pull:** Added the ability to do a git pull ([df88922](https://github.com/sisk-technology-group-ltd/minerva/commit/df88922))
+* **merging:** Added the ability to merge in and out between branches ([60052c8](https://github.com/sisk-technology-group-ltd/minerva/commit/60052c8))
+
+
+
 <a name="0.4.1"></a>
 ## [0.4.1](https://github.com/sisk-technology-group-ltd/minerva/compare/v0.4.0...v0.4.1) (2018-05-08)
 
