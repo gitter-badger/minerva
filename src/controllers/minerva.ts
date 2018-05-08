@@ -6,12 +6,17 @@ class Minerva extends Application {
     public description = '';
 
     protected async boot(): Promise<void> {
+
         this.commander
-            .command('repo', 'Description Here').alias('r')
-            .command('versioning', 'Description Here').alias('v')
+            .command('repo', 'Description Here').alias('r');
+
+        this.commander
+            .command('versioning', 'Description Here').alias('v');
+
+        this.commander
             .command('update')
             .action(async () => {
-                (new MinervaUtility()).outputUpdate();
+                await (new MinervaUtility()).outputUpdate();
             });
     }
 }

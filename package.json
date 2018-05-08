@@ -53,6 +53,7 @@
   },
   "dependencies": {
     "commander": "2.15.1",
+    "detect-installed": "2.0.4",
     "inquirer": "5.2.0",
     "node-cmd": "3.0.0",
     "standard-version": "4.3.0"

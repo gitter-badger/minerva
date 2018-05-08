@@ -1,8 +1,19 @@
+const detectInstalled = require('detect-installed');
 import * as cmd from 'node-cmd';
 
 export abstract class Utility {
 
+    public packageManager: string = 'npm';
     protected utilitySettings: any = undefined;
+
+    constructor() {
+        const yarnCheck = detectInstalled.sync('yarn');
+
+        if (yarnCheck) {
+            this.packageManager = 'yarn';
+        }
+
+    }
 
     public get settings(): any {
         return this.utilitySettings;
@@ -10,10 +21,6 @@ export abstract class Utility {
 
     public set settings(utilitySettings: any) {
         this.utilitySettings = utilitySettings;
-    }
-
-    protected get packageManager(): string {
-        return 'yarn';
     }
 
     protected output(output: string): void {
