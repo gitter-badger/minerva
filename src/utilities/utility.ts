@@ -13,9 +13,7 @@ export abstract class Utility {
         try {
             const settingsFileContents = fs.readFileSync('.minerva.json');
             this.settings = JSON.parse(settingsFileContents) as ConfigEntity;
-            this.output(this.settings);
         } catch (e) {
-            console.log(e);
         }
 
         if (this.packageInstalled('yarn')) {
