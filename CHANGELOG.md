@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.4.0"></a>
+# [0.4.0](https://github.com/sisk-technology-group-ltd/minerva/compare/v0.3.0...v0.4.0) (2018-05-08)
+
+
+### Features
+
+* **add uncommitted:** Ability to add all uncommitted files to the repository. ([46652b7](https://github.com/sisk-technology-group-ltd/minerva/commit/46652b7))
+
+
+
 <a name="0.3.0"></a>
 # [0.3.0](https://github.com/sisk-technology-group-ltd/minerva/compare/v0.2.6...v0.3.0) (2018-05-08)
 
