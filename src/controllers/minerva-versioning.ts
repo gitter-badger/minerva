@@ -34,6 +34,12 @@ class MinervaVersioning extends Application {
                         name: 'description',
                         message: 'Enter description ...',
                     },
+                    {
+                        type: 'confirm',
+                        name: 'include',
+                        message: 'Include all uncommitted files?',
+                        default: false,
+                    }
                 ]);
 
                 await utility.add(
@@ -45,16 +51,6 @@ class MinervaVersioning extends Application {
             .command('publish')
             .alias('p')
             .action(async () => {
-
-                const answers = await this.ask([
-                    {
-                        type: 'confirm',
-                        name: 'include',
-                        message: 'Include all uncommitted files?',
-                        default: false,
-                    }
-                ]);
-
                 await utility.publish()
             });
     }

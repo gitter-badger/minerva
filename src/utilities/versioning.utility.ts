@@ -13,8 +13,14 @@ export class VersioningUtility extends Utility {
     public async add(
         type: string,
         title: string,
-        description: string
+        description: string,
+        addUncommitted: boolean = false
     ): Promise<void> {
+
+        if (addUncommitted) {
+            this.output(await this.repo.addAll());
+        }
+
         this.output(
             await this.repo.commit(
                 `${type.toLowerCase()}(${title.toLowerCase()}): ${description}`,
@@ -24,12 +30,8 @@ export class VersioningUtility extends Utility {
         );
     }
 
-    public async publish(addUncommitted: boolean = false): Promise<void> {
+    public async publish(): Promise<void> {
         this.output(await this.run(`${this.packageManager} run minerva:release`));
-
-        if (addUncommitted) {
-            this.output(await this.repo.addAll());
-        }
 
         this.output(await this.repo.push());
 
