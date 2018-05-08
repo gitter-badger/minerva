@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest --notify",
     "build": "yarn run clean && tsc",
-    "clean": "rimraf dist"
+    "clean": "rimraf dist",
+    "release": "standard-version"
   },
   "preferGlobal": true,
   "bin": {
