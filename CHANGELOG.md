@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.6.3"></a>
+## [0.6.3](https://github.com/sisk-technology-group-ltd/minerva/compare/v0.6.2...v0.6.3) (2018-05-08)
+
+
+### Bug Fixes
+
+* **package manager:** Corrected the options from a type of 'choice' to a type of 'list' ([116faab](https://github.com/sisk-technology-group-ltd/minerva/commit/116faab))
+
+
+
 <a name="0.6.2"></a>
 ## [0.6.2](https://github.com/sisk-technology-group-ltd/minerva/compare/v0.6.1...v0.6.2) (2018-05-08)
 
