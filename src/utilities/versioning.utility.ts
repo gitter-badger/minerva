@@ -27,7 +27,7 @@ export class VersioningUtility extends Utility {
     public async publish(): Promise<void> {
         this.output(await this.run(`${this.packageManager} release`));
         this.output(await this.repo.push());
-        this.output(await this.run(`${this.packageManager} publish`));
+        this.output(await this.run(`npm publish`));
     }
 
 }
