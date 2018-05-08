@@ -20,12 +20,12 @@ class MinervaRepo extends utilities_1.Application {
             const utility = new utilities_1.GithubUtility();
             this.commander
                 .command('status')
-                .action(() => utility.status());
+                .action(() => __awaiter(this, void 0, void 0, function* () { return utility.status(); }));
             this.commander
-                .command('test')
-                .action(() => {
-                console.log('Testing!');
-            });
+                .command('branch')
+                .action(() => __awaiter(this, void 0, void 0, function* () {
+                yield utility.outputBranch();
+            }));
         });
     }
 }

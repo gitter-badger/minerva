@@ -29,9 +29,15 @@ class MinervaVersioning extends Application {
                     },
                 ]);
 
-                utility.add(
+                await utility.add(
                     answers['type'], answers['title'], answers['description']
                 )
+            });
+
+        this.commander
+            .command('publish')
+            .action(async () => {
+                await utility.publish()
             });
     }
 }

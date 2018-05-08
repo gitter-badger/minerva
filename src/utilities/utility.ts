@@ -12,6 +12,10 @@ export abstract class Utility {
         this.utilitySettings = utilitySettings;
     }
 
+    protected get packageManager(): string {
+        return 'yarn';
+    }
+
     protected output(output: string): void {
         process.stdout.write(output);
     }

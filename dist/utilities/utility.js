@@ -11,6 +11,9 @@ class Utility {
     set settings(utilitySettings) {
         this.utilitySettings = utilitySettings;
     }
+    get packageManager() {
+        return 'yarn';
+    }
     output(output) {
         process.stdout.write(output);
     }

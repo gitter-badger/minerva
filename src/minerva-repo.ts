@@ -10,12 +10,12 @@ class MinervaRepo extends Application {
 
         this.commander
             .command('status')
-            .action(() => utility.status());
+            .action(async () => utility.status());
 
         this.commander
-            .command('test')
-            .action(() => {
-                console.log('Testing!');
+            .command('branch')
+            .action(async () => {
+                await utility.outputBranch()
             });
     }
 }

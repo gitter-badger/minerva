@@ -38,7 +38,12 @@ class MinervaVersioning extends utilities_1.Application {
                         message: 'Enter description ...',
                     },
                 ]);
-                utility.add(answers['type'], answers['title'], answers['description']);
+                yield utility.add(answers['type'], answers['title'], answers['description']);
+            }));
+            this.commander
+                .command('publish')
+                .action(() => __awaiter(this, void 0, void 0, function* () {
+                yield utility.publish();
             }));
         });
     }

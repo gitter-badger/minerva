@@ -12,4 +12,12 @@ export class GithubUtility extends Utility {
             });
     }
 
+    public async outputBranch(): Promise<void> {
+        this.output(`Current Branch: ${await this.currentBranch()}`)
+    }
+
+    public currentBranch(): Promise<string> {
+        return this.run(`git rev-parse --abbrev-ref HEAD`)
+    }
+
 }
