@@ -7,6 +7,7 @@ class Utility {
     constructor() {
         this.packageManager = 'npm';
         this.utilitySettings = undefined;
+        this.colors = require('colors');
         try {
             const settingsFileContents = fs.readFileSync('.minerva.json');
             this.settings = JSON.parse(settingsFileContents);

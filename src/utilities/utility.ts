@@ -8,6 +8,7 @@ export abstract class Utility {
 
     public packageManager: string = 'npm';
     protected utilitySettings: any = undefined;
+    protected colors = require('colors');
 
     constructor() {
         try {

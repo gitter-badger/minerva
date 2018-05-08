@@ -31,6 +31,12 @@ export class VersioningUtility extends Utility {
     }
 
     public async publish(): Promise<void> {
+        if (this.settings.autoBuild) {
+            this.output(this.colors.red(`Building before publishing - Please Wait...`))
+            await this.run(`${this.packageManager} run build`);
+            await this.repo.addAll();
+        }
+
         this.output(await this.run(`${this.packageManager} run minerva:release`));
 
         this.output(await this.repo.push());

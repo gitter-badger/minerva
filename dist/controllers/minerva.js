@@ -37,6 +37,12 @@ class Minerva extends utilities_1.Application {
                         name: 'npmPublish',
                         message: 'Publish to npmjs.com?',
                         default: false,
+                    },
+                    {
+                        type: 'confirm',
+                        name: 'autoBuild',
+                        message: 'Automatically build the project before running any publishes?',
+                        default: true,
                     }
                 ]);
                 yield (new utilities_1.MinervaUtility()).init(answers);
