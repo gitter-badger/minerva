@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import {Application, VersioningUtility} from "../utilities/index";
+import {QuestionChoiceEntity} from "../entities/question-choice.entity";
 
 class MinervaVersioning extends Application {
     public description = 'Manage the current source code repository.';
@@ -14,9 +15,14 @@ class MinervaVersioning extends Application {
             .action(async () => {
                 const answers = await this.ask([
                     {
-                        type: 'input',
+                        type: 'list',
                         name: 'type',
                         message: 'Enter type ...',
+                        choices: [
+                            {name: 'Feature', value: 'feat'} as QuestionChoiceEntity,
+                            {name: 'Bug Fix', value: 'fix'} as QuestionChoiceEntity,
+                            {name: 'Chore', value: 'chore'} as QuestionChoiceEntity,
+                        ],
                     },
                     {
                         type: 'input',
