@@ -7,9 +7,7 @@ export abstract class Utility {
     protected utilitySettings: any = undefined;
 
     constructor() {
-        const yarnCheck = detectInstalled.sync('yarn');
-
-        if (yarnCheck) {
+        if (this.packageInstalled('yarn')) {
             this.packageManager = 'yarn';
         }
 
@@ -23,12 +21,16 @@ export abstract class Utility {
         this.utilitySettings = utilitySettings;
     }
 
+    public packageInstalled(packageName: string): boolean {
+        return detectInstalled.sync(packageName);
+    }
+
     protected output(output: string): void {
-        process.stdout.write(output);
+        process.stdout.write(output + '\n');
     }
 
     protected error(output: string): void {
-        process.stderr.write(output);
+        process.stderr.write(output + '\n');
     }
 
     protected run(command: string): Promise<string> {

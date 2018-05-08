@@ -18,6 +18,12 @@ class Minerva extends Application {
             .action(async () => {
                 await (new MinervaUtility()).outputUpdate();
             });
+
+        this.commander
+            .command('init')
+            .action(async () => {
+                await (new MinervaUtility()).init();
+            });
     }
 }
 
