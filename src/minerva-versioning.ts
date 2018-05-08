@@ -1,5 +1,6 @@
-import {Application} from "./utilities";
-import {VersioningUtility} from "./utilities/versioning.utility";
+#!/usr/bin/env node
+
+import {Application, VersioningUtility} from "./utilities";
 
 class MinervaVersioning extends Application {
     public description = 'Manage the current source code repository.';

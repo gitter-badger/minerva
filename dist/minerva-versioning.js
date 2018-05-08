@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 "use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -9,7 +10,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const utilities_1 = require("./utilities");
-const versioning_utility_1 = require("./utilities/versioning.utility");
 class MinervaVersioning extends utilities_1.Application {
     constructor() {
         super(...arguments);
@@ -17,7 +17,7 @@ class MinervaVersioning extends utilities_1.Application {
     }
     boot() {
         return __awaiter(this, void 0, void 0, function* () {
-            const utility = new versioning_utility_1.VersioningUtility();
+            const utility = new utilities_1.VersioningUtility();
             this.commander
                 .command('add')
                 .action(() => __awaiter(this, void 0, void 0, function* () {

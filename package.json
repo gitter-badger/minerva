@@ -10,7 +10,7 @@
   },
   "preferGlobal": true,
   "bin": {
-    "minerva": "./dist/minerva"
+    "minerva": "./dist/minerva.js"
   },
   "repository": {
     "type": "git",

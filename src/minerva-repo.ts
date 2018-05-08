@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import {Application, GithubUtility} from "./utilities";
 
 class MinervaRepo extends Application {
@@ -9,6 +11,12 @@ class MinervaRepo extends Application {
         this.commander
             .command('status')
             .action(() => utility.status());
+
+        this.commander
+            .command('test')
+            .action(() => {
+                console.log('Testing!');
+            });
     }
 }
 
