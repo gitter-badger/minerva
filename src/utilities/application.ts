@@ -21,7 +21,7 @@ export abstract class Application {
 
     public get packageJson(): any {
         try {
-            const settingsFileContents = fs.readFileSync(`${process.cwd()}/package.json`);
+            const settingsFileContents = fs.readFileSync(`${__dirname}/../../package.json`);
             return JSON.parse(settingsFileContents);
         } catch (e) {
             console.log(e);
