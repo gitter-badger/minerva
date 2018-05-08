@@ -2,7 +2,7 @@
   "name": "@sisk-technology-group/minerva",
   "version": "0.1.0",
   "description": "A command line tool to manage and automate the standard workflows we use.",
-  "main": "dist/minerva.js",
+  "main": "dist/controllers/minerva.js",
   "scripts": {
     "test": "jest --notify",
     "build": "yarn run clean && tsc",
@@ -11,7 +11,7 @@
   },
   "preferGlobal": true,
   "bin": {
-    "minerva": "./dist/minerva.js"
+    "minerva": "./dist/controllers/minerva.js"
   },
   "repository": {
     "type": "git",

@@ -1,22 +1,25 @@
 import {Utility} from "./utility";
+import {RepoInterface} from "../interfaces";
 
-export class GithubUtility extends Utility {
+export class GithubUtility extends Utility implements RepoInterface {
 
-    public status(): void {
-        this.run('git status')
-            .then((data) => {
-                this.output(data);
-            })
-            .catch((err) => {
-                this.error(err.message);
-            });
+    public async outputStatus(): Promise<void> {
+        this.output(await this.run('git status'));
     }
 
     public async outputBranch(): Promise<void> {
-        this.output(`Current Branch: ${await this.currentBranch()}`)
+        this.output(`Current Branch: ${await this.getCurrentBranch()}`)
     }
 
-    public currentBranch(): Promise<string> {
+    public async commit(title: string, description?: string, options?: string[]): Promise<string> {
+        return this.run(`git commit ${options || ''} "${title}"`);
+    }
+
+    public async push(): Promise<string> {
+        return this.run(`git push --follow-tags origin ${await this.getCurrentBranch()}`);
+    }
+
+    protected async getCurrentBranch(): Promise<string> {
         return this.run(`git rev-parse --abbrev-ref HEAD`)
     }
 

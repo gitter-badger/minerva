@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import {Application, GithubUtility} from "./utilities";
+import {Application, GithubUtility} from "../utilities/index";
 
 class MinervaRepo extends Application {
     public description = 'Manage the current source code repository.';
@@ -10,10 +10,14 @@ class MinervaRepo extends Application {
 
         this.commander
             .command('status')
-            .action(async () => utility.status());
+            .alias('s')
+            .action(async () => {
+                await utility.outputStatus()
+            });
 
         this.commander
             .command('branch')
+            .alias('b')
             .action(async () => {
                 await utility.outputBranch()
             });

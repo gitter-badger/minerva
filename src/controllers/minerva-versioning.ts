@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import {Application, VersioningUtility} from "./utilities";
+import {Application, VersioningUtility} from "../utilities/index";
 
 class MinervaVersioning extends Application {
     public description = 'Manage the current source code repository.';
@@ -10,6 +10,7 @@ class MinervaVersioning extends Application {
 
         this.commander
             .command('add')
+            .alias('a')
             .action(async () => {
                 const answers = await this.ask([
                     {
@@ -36,6 +37,7 @@ class MinervaVersioning extends Application {
 
         this.commander
             .command('publish')
+            .alias('p')
             .action(async () => {
                 await utility.publish()
             });
