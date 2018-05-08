@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.2.3"></a>
+## [0.2.3](https://github.com/sisk-technology-group-ltd/minerva/compare/v0.2.2...v0.2.3) (2018-05-08)
+
+
+### Bug Fixes
+
+* **package check:** Added init script that can be used on new minerva packages which checks all required files have been included and also adds release scripts. ([87558e5](https://github.com/sisk-technology-group-ltd/minerva/commit/87558e5))
+
+
+
 <a name="0.2.2"></a>
 ## [0.2.2](https://github.com/sisk-technology-group-ltd/minerva/compare/v0.2.1...v0.2.2) (2018-05-08)
 
