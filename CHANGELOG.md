@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.2.1"></a>
+## [0.2.1](https://github.com/sisk-technology-group-ltd/minerva/compare/v0.2.0...v0.2.1) (2018-05-08)
+
+
+### Bug Fixes
+
+* **gitignore:** Removed the dist directory from .gitignore as it appears to be causing issues with globaly module. ([f562dcc](https://github.com/sisk-technology-group-ltd/minerva/commit/f562dcc))
+
+
+
 <a name="0.2.0"></a>
 # [0.2.0](https://github.com/sisk-technology-group-ltd/minerva/compare/v0.1.3...v0.2.0) (2018-05-08)
 
