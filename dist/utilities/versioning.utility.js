@@ -27,7 +27,7 @@ class VersioningUtility extends utility_1.Utility {
         return __awaiter(this, void 0, void 0, function* () {
             if (this.settings.autoBuild) {
                 this.output(this.colors.red(`Building before publishing - Please Wait...`));
-                yield this.run(`${this.packageManager} run build`);
+                this.output(yield this.run(`${this.packageManager} run build`));
                 yield this.repo.addAll();
             }
             this.output(yield this.run(`${this.packageManager} run minerva:release`));

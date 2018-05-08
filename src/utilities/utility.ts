@@ -17,7 +17,9 @@ export abstract class Utility {
         } catch (e) {
         }
 
-        if (this.packageInstalled('yarn')) {
+        if (this.settings.packageManager) {
+            this.packageManager = this.settings.packageManager;
+        } else if (this.packageInstalled('yarn')) {
             this.packageManager = 'yarn';
         }
     }

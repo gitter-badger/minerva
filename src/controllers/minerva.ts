@@ -38,6 +38,15 @@ class Minerva extends Application {
                         name: 'autoBuild',
                         message: 'Automatically build the project before running any publishes?',
                         default: true,
+                    },
+                    {
+                        type: 'choice',
+                        name: 'packageManager',
+                        message: 'Which package manager would you like to use?',
+                        choices: [
+                            {name: 'Yarn', value: 'yarn'},
+                            {name: 'NPM', value: 'npm'},
+                        ],
                     }
                 ]);
 
