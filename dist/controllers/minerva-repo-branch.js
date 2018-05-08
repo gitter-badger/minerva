@@ -26,10 +26,21 @@ class MinervaRepoBranch extends utilities_1.Application {
             }));
             this.commander
                 .command('create <branchName> [from]')
-                .option('--from <from>', 'Which branch to create from.')
                 .alias('c')
-                .action((branchName, options) => __awaiter(this, void 0, void 0, function* () {
-                yield utility.outputCreateBranch(branchName, options ? options.from : undefined);
+                .action((branchName, from) => __awaiter(this, void 0, void 0, function* () {
+                yield utility.outputCreateBranch(branchName, from || undefined);
+            }));
+            this.commander
+                .command('merge-in [from] [to]')
+                .alias('mi')
+                .action((from, to) => __awaiter(this, void 0, void 0, function* () {
+                yield utility.outputMergeIn(from, to);
+            }));
+            this.commander
+                .command('merge-out [to] [from]')
+                .alias('mo')
+                .action((to, from) => __awaiter(this, void 0, void 0, function* () {
+                yield utility.outputMergeOut(to, from);
             }));
             this.commander
                 .command('name')

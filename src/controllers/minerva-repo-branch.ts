@@ -17,10 +17,23 @@ class MinervaRepoBranch extends Application {
 
         this.commander
             .command('create <branchName> [from]')
-            .option('--from <from>', 'Which branch to create from.')
             .alias('c')
-            .action(async (branchName, options) => {
-                await utility.outputCreateBranch(branchName, options ? options.from : undefined)
+            .action(async (branchName, from) => {
+                await utility.outputCreateBranch(branchName, from || undefined)
+            });
+
+        this.commander
+            .command('merge-in [from] [to]')
+            .alias('mi')
+            .action(async (from, to) => {
+                await utility.outputMergeIn(from, to);
+            });
+
+        this.commander
+            .command('merge-out [to] [from]')
+            .alias('mo')
+            .action(async (to, from) => {
+                await utility.outputMergeOut(to, from);
             });
 
         this.commander

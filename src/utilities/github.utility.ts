@@ -10,7 +10,7 @@ export class GithubUtility extends Utility implements RepoInterface {
     }
 
     public async outputBranch(): Promise<void> {
-        this.output(`Current Branch: ${await this.getCurrentBranch()}`)
+        this.output(`Current Branch: ${colors.green(await this.getCurrentBranch())}`)
     }
 
     public async commit(title: string, description?: string, options?: string[]): Promise<string> {
@@ -39,9 +39,8 @@ export class GithubUtility extends Utility implements RepoInterface {
     }
 
     public async outputCheckout(branchName: string): Promise<void> {
-        this.output(
-            await this.checkout(branchName)
-        );
+        await this.checkout(branchName);
+        await this.outputBranch();
     }
 
     public async checkout(branchName: string): Promise<string> {
@@ -66,6 +65,10 @@ export class GithubUtility extends Utility implements RepoInterface {
         return this.run(`git checkout -b ${branchName.toLowerCase().split(' ').join('-')}`);
     }
 
+    public async outputMergeIn(from?: string, to?: string): Promise<void> {
+        this.output(await this.mergeIn(from, to));
+    }
+
     /**
      * Merges a specified branch into the current branch or a specified one.
      *
@@ -80,6 +83,10 @@ export class GithubUtility extends Utility implements RepoInterface {
         await this.pull();
         await this.checkout(toBranch);
         return await this.run(`git merge ${fromBranch}`);
+    }
+
+    public async outputMergeOut(to: string, from?: string): Promise<void> {
+        this.output(await this.mergeOut(to, from));
     }
 
     /**

@@ -18,7 +18,7 @@ class GithubUtility extends utility_1.Utility {
     }
     outputBranch() {
         return __awaiter(this, void 0, void 0, function* () {
-            this.output(`Current Branch: ${yield this.getCurrentBranch()}`);
+            this.output(`Current Branch: ${colors.green(yield this.getCurrentBranch())}`);
         });
     }
     commit(title, description, options) {
@@ -46,7 +46,8 @@ class GithubUtility extends utility_1.Utility {
     }
     outputCheckout(branchName) {
         return __awaiter(this, void 0, void 0, function* () {
-            this.output(yield this.checkout(branchName));
+            yield this.checkout(branchName);
+            yield this.outputBranch();
         });
     }
     checkout(branchName) {
@@ -67,6 +68,11 @@ class GithubUtility extends utility_1.Utility {
             return this.run(`git checkout -b ${branchName.toLowerCase().split(' ').join('-')}`);
         });
     }
+    outputMergeIn(from, to) {
+        return __awaiter(this, void 0, void 0, function* () {
+            this.output(yield this.mergeIn(from, to));
+        });
+    }
     mergeIn(from, to) {
         return __awaiter(this, void 0, void 0, function* () {
             const fromBranch = from || 'master';
@@ -76,6 +82,11 @@ class GithubUtility extends utility_1.Utility {
             yield this.pull();
             yield this.checkout(toBranch);
             return yield this.run(`git merge ${fromBranch}`);
+        });
+    }
+    outputMergeOut(to, from) {
+        return __awaiter(this, void 0, void 0, function* () {
+            this.output(yield this.mergeOut(to, from));
         });
     }
     mergeOut(to, from) {
