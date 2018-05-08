@@ -9,11 +9,18 @@ class MinervaRepoBranch extends Application {
         const utility = new GithubUtility();
 
         this.commander
+            .command('checkout <branchName>')
+            .alias('o')
+            .action(async (branchName, options) => {
+                await utility.outputCheckout(branchName)
+            });
+
+        this.commander
             .command('create <branchName> [from]')
             .option('--from <from>', 'Which branch to create from.')
             .alias('c')
             .action(async (branchName, options) => {
-                await utility.createBranch(branchName, options ? options.from : undefined)
+                await utility.outputCreateBranch(branchName, options ? options.from : undefined)
             });
 
         this.commander

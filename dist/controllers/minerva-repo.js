@@ -26,6 +26,13 @@ class MinervaRepo extends utilities_1.Application {
                 yield utility.outputStatus();
             }));
             this.commander
+                .command('pull')
+                .description('Displays the current git status of the branch.')
+                .alias('p')
+                .action(() => __awaiter(this, void 0, void 0, function* () {
+                yield utility.outputPull();
+            }));
+            this.commander
                 .command('branch', 'Manages the current branch.')
                 .alias('b');
         });

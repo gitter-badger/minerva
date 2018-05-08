@@ -17,6 +17,14 @@ class MinervaRepo extends Application {
             });
 
         this.commander
+            .command('pull')
+            .description('Displays the current git status of the branch.')
+            .alias('p')
+            .action(async () => {
+                await utility.outputPull()
+            });
+
+        this.commander
             .command('branch', 'Manages the current branch.')
             .alias('b');
     }

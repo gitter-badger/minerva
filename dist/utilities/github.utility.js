@@ -9,6 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const utility_1 = require("./utility");
+const colors = require('colors');
 class GithubUtility extends utility_1.Utility {
     outputStatus() {
         return __awaiter(this, void 0, void 0, function* () {
@@ -33,14 +34,29 @@ class GithubUtility extends utility_1.Utility {
     addAll() {
         return this.run(`git add -A`);
     }
+    outputPull() {
+        return __awaiter(this, void 0, void 0, function* () {
+            this.output(`${colors.green(yield this.getCurrentBranch())}: ${yield this.pull()}`);
+        });
+    }
     pull() {
         return __awaiter(this, void 0, void 0, function* () {
-            yield this.run(`git pull`);
+            return this.run(`git pull`);
+        });
+    }
+    outputCheckout(branchName) {
+        return __awaiter(this, void 0, void 0, function* () {
+            this.output(yield this.checkout(branchName));
         });
     }
     checkout(branchName) {
         return __awaiter(this, void 0, void 0, function* () {
-            yield this.run(`git checkout ${branchName}`);
+            return this.run(`git checkout ${branchName}`);
+        });
+    }
+    outputCreateBranch(branchName, from) {
+        return __awaiter(this, void 0, void 0, function* () {
+            this.output(yield this.createBranch(branchName, from));
         });
     }
     createBranch(branchName, from) {
@@ -48,7 +64,7 @@ class GithubUtility extends utility_1.Utility {
             const fromBranch = from || 'master';
             yield this.checkout(fromBranch);
             yield this.pull();
-            this.output(yield this.run(`git checkout -b ${branchName.toLowerCase().split(' ').join('-')}`));
+            return this.run(`git checkout -b ${branchName.toLowerCase().split(' ').join('-')}`);
         });
     }
     mergeIn(from, to) {
@@ -59,7 +75,7 @@ class GithubUtility extends utility_1.Utility {
             yield this.checkout(fromBranch);
             yield this.pull();
             yield this.checkout(toBranch);
-            this.output(yield this.run(`git merge ${fromBranch}`));
+            return yield this.run(`git merge ${fromBranch}`);
         });
     }
     mergeOut(to, from) {
@@ -68,12 +84,12 @@ class GithubUtility extends utility_1.Utility {
             yield this.pull();
             yield this.checkout(to);
             yield this.pull();
-            this.output(yield this.run(`git merge ${fromBranch}`));
+            return yield this.run(`git merge ${fromBranch}`);
         });
     }
     getCurrentBranch() {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.run(`git rev-parse --abbrev-ref HEAD`);
+            return (yield this.run(`git rev-parse --abbrev-ref HEAD`)).replace(/\r?\n|\r/g, '');
         });
     }
 }
