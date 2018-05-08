@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.1.3"></a>
+## [0.1.3](https://github.com/sisk-technology-group-ltd/minerva/compare/v0.1.2...v0.1.3) (2018-05-08)
+
+
+### Bug Fixes
+
+* **force npm:** Forces the publish command to use NPM to ensure no version number conflicts which can arise when Yarn is being used. ([8288f01](https://github.com/sisk-technology-group-ltd/minerva/commit/8288f01))
+
+
+
 <a name="0.1.2"></a>
 ## [0.1.2](https://github.com/sisk-technology-group-ltd/minerva/compare/v0.1.1...v0.1.2) (2018-05-08)
 
