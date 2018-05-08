@@ -18,16 +18,18 @@ class Minerva extends utilities_1.Application {
     boot() {
         return __awaiter(this, void 0, void 0, function* () {
             this.commander
-                .command('repo', 'Description Here').alias('r');
+                .command('repo', 'Manage the current source code repository.').alias('r');
             this.commander
-                .command('versioning', 'Description Here').alias('v');
+                .command('versioning', 'Adds and Publishes versions of the current application.').alias('v');
             this.commander
                 .command('update')
+                .description('Updates Minerva to the latest version.')
                 .action(() => __awaiter(this, void 0, void 0, function* () {
                 yield (new utilities_1.MinervaUtility()).outputUpdate();
             }));
             this.commander
                 .command('init')
+                .description('Initiates Minerva for the current application.')
                 .action(() => __awaiter(this, void 0, void 0, function* () {
                 const answers = yield this.ask([
                     {

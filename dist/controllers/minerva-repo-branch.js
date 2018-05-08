@@ -10,7 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const utilities_1 = require("../utilities");
-class MinervaRepo extends utilities_1.Application {
+class MinervaRepoBranch extends utilities_1.Application {
     constructor() {
         super(...arguments);
         this.description = 'Manage the current source code repository.';
@@ -19,17 +19,21 @@ class MinervaRepo extends utilities_1.Application {
         return __awaiter(this, void 0, void 0, function* () {
             const utility = new utilities_1.GithubUtility();
             this.commander
-                .command('status')
-                .description('Displays the current git status of the branch.')
-                .alias('s')
-                .action(() => __awaiter(this, void 0, void 0, function* () {
-                yield utility.outputStatus();
+                .command('create <branchName> [from]')
+                .option('--from <from>', 'Which branch to create from.')
+                .alias('c')
+                .action((branchName, options) => __awaiter(this, void 0, void 0, function* () {
+                yield utility.createBranch(branchName, options ? options.from : undefined);
             }));
             this.commander
-                .command('branch', 'Manages the current branch.')
-                .alias('b');
+                .command('name')
+                .description('Displays the current git branch.')
+                .alias('n')
+                .action(() => __awaiter(this, void 0, void 0, function* () {
+                yield utility.outputBranch();
+            }));
         });
     }
 }
-new MinervaRepo();
-//# sourceMappingURL=minerva-repo.js.map
+new MinervaRepoBranch();
+//# sourceMappingURL=minerva-repo-branch.js.map

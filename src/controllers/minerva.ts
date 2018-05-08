@@ -9,19 +9,21 @@ class Minerva extends Application {
     protected async boot(): Promise<void> {
 
         this.commander
-            .command('repo', 'Description Here').alias('r');
+            .command('repo', 'Manage the current source code repository.').alias('r');
 
         this.commander
-            .command('versioning', 'Description Here').alias('v');
+            .command('versioning', 'Adds and Publishes versions of the current application.').alias('v');
 
         this.commander
             .command('update')
+            .description('Updates Minerva to the latest version.')
             .action(async () => {
                 await (new MinervaUtility()).outputUpdate();
             });
 
         this.commander
             .command('init')
+            .description('Initiates Minerva for the current application.')
             .action(async () => {
 
                 const answers = await this.ask([

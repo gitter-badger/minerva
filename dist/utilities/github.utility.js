@@ -33,6 +33,44 @@ class GithubUtility extends utility_1.Utility {
     addAll() {
         return this.run(`git add -A`);
     }
+    pull() {
+        return __awaiter(this, void 0, void 0, function* () {
+            yield this.run(`git pull`);
+        });
+    }
+    checkout(branchName) {
+        return __awaiter(this, void 0, void 0, function* () {
+            yield this.run(`git checkout ${branchName}`);
+        });
+    }
+    createBranch(branchName, from) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const fromBranch = from || 'master';
+            yield this.checkout(fromBranch);
+            yield this.pull();
+            this.output(yield this.run(`git checkout -b ${branchName.toLowerCase().split(' ').join('-')}`));
+        });
+    }
+    mergeIn(from, to) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const fromBranch = from || 'master';
+            const toBranch = to || (yield this.getCurrentBranch());
+            yield this.pull();
+            yield this.checkout(fromBranch);
+            yield this.pull();
+            yield this.checkout(toBranch);
+            this.output(yield this.run(`git merge ${fromBranch}`));
+        });
+    }
+    mergeOut(to, from) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const fromBranch = from || (yield this.getCurrentBranch());
+            yield this.pull();
+            yield this.checkout(to);
+            yield this.pull();
+            this.output(yield this.run(`git merge ${fromBranch}`));
+        });
+    }
     getCurrentBranch() {
         return __awaiter(this, void 0, void 0, function* () {
             return this.run(`git rev-parse --abbrev-ref HEAD`);

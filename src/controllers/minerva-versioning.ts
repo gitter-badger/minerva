@@ -11,6 +11,7 @@ class MinervaVersioning extends Application {
 
         this.commander
             .command('add')
+            .description('Adds a new version of the application and commits to the repo.')
             .alias('a')
             .action(async () => {
                 const answers = await this.ask([
@@ -49,6 +50,7 @@ class MinervaVersioning extends Application {
 
         this.commander
             .command('publish')
+            .description('Publishes the current application version to the repo and also to npmjs.com if required.')
             .alias('p')
             .action(async () => {
                 await utility.publish()

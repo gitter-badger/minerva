@@ -20,6 +20,7 @@ class MinervaVersioning extends index_1.Application {
             const utility = new index_1.VersioningUtility();
             this.commander
                 .command('add')
+                .description('Adds a new version of the application and commits to the repo.')
                 .alias('a')
                 .action(() => __awaiter(this, void 0, void 0, function* () {
                 const answers = yield this.ask([
@@ -54,6 +55,7 @@ class MinervaVersioning extends index_1.Application {
             }));
             this.commander
                 .command('publish')
+                .description('Publishes the current application version to the repo and also to npmjs.com if required.')
                 .alias('p')
                 .action(() => __awaiter(this, void 0, void 0, function* () {
                 yield utility.publish();
