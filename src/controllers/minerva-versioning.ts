@@ -36,14 +36,14 @@ class MinervaVersioning extends Application {
                     },
                     {
                         type: 'confirm',
-                        name: 'include',
+                        name: 'includeUncommitted',
                         message: 'Include all uncommitted files?',
-                        default: false,
+                        default: true,
                     }
                 ]);
 
                 await utility.add(
-                    answers['type'], answers['title'], answers['description']
+                    answers['type'], answers['title'], answers['description'], answers['includeUncommitted']
                 )
             });
 
