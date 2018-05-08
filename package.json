@@ -1,6 +1,6 @@
 {
   "name": "@sisk-technology-group/minerva",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "description": "A command line tool to manage and automate the standard workflows we use.",
   "main": "dist/controllers/minerva.js",
   "scripts": {
