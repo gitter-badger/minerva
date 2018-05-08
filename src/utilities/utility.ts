@@ -1,5 +1,8 @@
-const detectInstalled = require('detect-installed');
+const fs = require("fs");
+import {ConfigEntity} from "../entities/config.entity";
 import * as cmd from 'node-cmd';
+
+const detectInstalled = require('detect-installed');
 
 export abstract class Utility {
 
@@ -7,17 +10,33 @@ export abstract class Utility {
     protected utilitySettings: any = undefined;
 
     constructor() {
+        try {
+            const settingsFileContents = fs.readFileSync('.minerva.json');
+            this.settings = JSON.parse(settingsFileContents) as ConfigEntity;
+            this.output(this.settings);
+        } catch (e) {
+            console.log(e);
+        }
+
         if (this.packageInstalled('yarn')) {
             this.packageManager = 'yarn';
         }
-
     }
 
-    public get settings(): any {
+    public get packageJson(): any {
+        try {
+            const settingsFileContents = fs.readFileSync('package.json');
+            return JSON.parse(settingsFileContents);
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
+    public get settings(): ConfigEntity {
         return this.utilitySettings;
     }
 
-    public set settings(utilitySettings: any) {
+    public set settings(utilitySettings: ConfigEntity) {
         this.utilitySettings = utilitySettings;
     }
 
@@ -25,11 +44,11 @@ export abstract class Utility {
         return detectInstalled.sync(packageName);
     }
 
-    protected output(output: string): void {
+    protected output(output: any): void {
         process.stdout.write(output + '\n');
     }
 
-    protected error(output: string): void {
+    protected error(output: any): void {
         process.stderr.write(output + '\n');
     }
 

@@ -26,8 +26,13 @@ export class VersioningUtility extends Utility {
 
     public async publish(): Promise<void> {
         this.output(await this.run(`${this.packageManager} run minerva:release`));
+
         this.output(await this.repo.push());
-        this.output(await this.run(`npm publish`));
+
+        if (this.settings.npmPublish) {
+            this.output(await this.run(`npm publish`));
+        }
+
     }
 
 }

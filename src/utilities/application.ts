@@ -1,3 +1,4 @@
+const fs = require("fs");
 import * as program from 'commander';
 import {QuestionEntity} from "../entities/question.entity";
 
@@ -18,6 +19,15 @@ export abstract class Application {
         });
     }
 
+    public get packageJson(): any {
+        try {
+            const settingsFileContents = fs.readFileSync(`${process.cwd()}/package.json`);
+            return JSON.parse(settingsFileContents);
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
     protected get commander() {
         return this.applicationCommander;
     }
@@ -30,7 +40,7 @@ export abstract class Application {
 
     private setVersionAndDescription() {
         this.commander
-            .version(this.version, '-V, --version')
+            .version(this.packageJson.version, '-V, --version')
             .description(this.description);
     }
 
