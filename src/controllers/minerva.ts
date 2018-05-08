@@ -2,6 +2,7 @@
 
 import {Application, MinervaUtility} from "../utilities";
 import {ConfigEntity} from "../entities/config.entity";
+import {QuestionChoiceEntity} from "../entities/question-choice.entity";
 
 class Minerva extends Application {
     public description = '';
@@ -40,12 +41,12 @@ class Minerva extends Application {
                         default: true,
                     },
                     {
-                        type: 'choice',
+                        type: 'list',
                         name: 'packageManager',
                         message: 'Which package manager would you like to use?',
                         choices: [
-                            {name: 'Yarn', value: 'yarn'},
-                            {name: 'NPM', value: 'npm'},
+                            {name: 'Yarn', value: 'yarn'} as QuestionChoiceEntity,
+                            {name: 'NPM', value: 'npm'} as QuestionChoiceEntity,
                         ],
                     }
                 ]);

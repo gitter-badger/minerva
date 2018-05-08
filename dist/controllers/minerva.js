@@ -43,6 +43,15 @@ class Minerva extends utilities_1.Application {
                         name: 'autoBuild',
                         message: 'Automatically build the project before running any publishes?',
                         default: true,
+                    },
+                    {
+                        type: 'choice',
+                        name: 'packageManager',
+                        message: 'Which package manager would you like to use?',
+                        choices: [
+                            { name: 'Yarn', value: 'yarn' },
+                            { name: 'NPM', value: 'npm' },
+                        ],
                     }
                 ]);
                 yield (new utilities_1.MinervaUtility()).init(answers);
