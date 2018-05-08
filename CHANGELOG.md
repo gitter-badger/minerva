@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.4.1"></a>
+## [0.4.1](https://github.com/sisk-technology-group-ltd/minerva/compare/v0.4.0...v0.4.1) (2018-05-08)
+
+
+### Bug Fixes
+
+* **uncommitted command:** The command to add uncommitted files was in the publish command but should have been in the versioning command. This has now been moved to the appropriate place. ([71d9de0](https://github.com/sisk-technology-group-ltd/minerva/commit/71d9de0))
+* **uncommitted files:** The value from the options to add all uncommitted files was not passing through ([4c6003d](https://github.com/sisk-technology-group-ltd/minerva/commit/4c6003d))
+
+
+
 <a name="0.4.0"></a>
 # [0.4.0](https://github.com/sisk-technology-group-ltd/minerva/compare/v0.3.0...v0.4.0) (2018-05-08)
 
