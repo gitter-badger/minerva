@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.6.4"></a>
+## [0.6.4](https://github.com/sisk-technology-group-ltd/minerva/compare/v0.6.3...v0.6.4) (2018-05-09)
+
+
+### Bug Fixes
+
+* **auto build:** Moved the auto build section so auto build takes place when adding a new version ([705d492](https://github.com/sisk-technology-group-ltd/minerva/commit/705d492))
+
+
+
 <a name="0.6.3"></a>
 ## [0.6.3](https://github.com/sisk-technology-group-ltd/minerva/compare/v0.6.2...v0.6.3) (2018-05-08)
 
