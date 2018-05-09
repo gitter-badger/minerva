@@ -17,7 +17,12 @@ class VersioningUtility extends utility_1.Utility {
     }
     add(type, title, description, addUncommitted = false) {
         return __awaiter(this, void 0, void 0, function* () {
-            if (addUncommitted) {
+            if (addUncommitted || this.settings.autoBuild) {
+                if (this.settings.autoBuild) {
+                    this.output(this.colors.red(`Building before adding new version - Please Wait...`));
+                    this.output(yield this.run(`${this.packageManager} run build`));
+                    yield this.repo.addAll();
+                }
                 this.output(yield this.repo.addAll());
             }
             this.output(yield this.repo.commit(`${type.toLowerCase()}(${title.toLowerCase()}): ${description}`, undefined, [`-am`]));
@@ -25,14 +30,14 @@ class VersioningUtility extends utility_1.Utility {
     }
     publish() {
         return __awaiter(this, void 0, void 0, function* () {
-            if (this.settings.autoBuild) {
-                this.output(this.colors.red(`Building before publishing - Please Wait...`));
-                this.output(yield this.run(`${this.packageManager} run build`));
-                yield this.repo.addAll();
-            }
             this.output(yield this.run(`${this.packageManager} run minerva:release`));
             this.output(yield this.repo.push());
             if (this.settings.npmPublish) {
+                if (this.settings.autoBuild) {
+                    this.output(this.colors.red(`Building before publishing - Please Wait...`));
+                    this.output(yield this.run(`${this.packageManager} run build`));
+                    yield this.repo.addAll();
+                }
                 this.output(yield this.run(`npm publish`));
             }
         });

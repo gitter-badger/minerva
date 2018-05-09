@@ -17,7 +17,12 @@ export class VersioningUtility extends Utility {
         addUncommitted: boolean = false
     ): Promise<void> {
 
-        if (addUncommitted) {
+        if (addUncommitted || this.settings.autoBuild) {
+            if (this.settings.autoBuild) {
+                this.output(this.colors.red(`Building before adding new version - Please Wait...`))
+                this.output(await this.run(`${this.packageManager} run build`));
+                await this.repo.addAll();
+            }
             this.output(await this.repo.addAll());
         }
 
@@ -31,17 +36,16 @@ export class VersioningUtility extends Utility {
     }
 
     public async publish(): Promise<void> {
-        if (this.settings.autoBuild) {
-            this.output(this.colors.red(`Building before publishing - Please Wait...`))
-            this.output(await this.run(`${this.packageManager} run build`));
-            await this.repo.addAll();
-        }
-
         this.output(await this.run(`${this.packageManager} run minerva:release`));
 
         this.output(await this.repo.push());
 
         if (this.settings.npmPublish) {
+            if (this.settings.autoBuild) {
+                this.output(this.colors.red(`Building before publishing - Please Wait...`))
+                this.output(await this.run(`${this.packageManager} run build`));
+                await this.repo.addAll();
+            }
             this.output(await this.run(`npm publish`));
         }
 

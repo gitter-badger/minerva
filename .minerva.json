@@ -1,4 +1,5 @@
 {
   "npmPublish": true,
-  "autoBuild": true
+  "autoBuild": true,
+  "packageManager": "yarn"
 }

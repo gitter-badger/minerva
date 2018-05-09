@@ -45,7 +45,7 @@ class Minerva extends utilities_1.Application {
                         default: true,
                     },
                     {
-                        type: 'choice',
+                        type: 'list',
                         name: 'packageManager',
                         message: 'Which package manager would you like to use?',
                         choices: [
