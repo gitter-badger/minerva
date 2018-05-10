@@ -4,11 +4,12 @@
   "description": "A command line tool to manage and automate the standard workflows we use.",
   "main": "dist/controllers/minerva.js",
   "scripts": {
-    "test": "jest --notify",
     "build": "yarn run clean && tsc",
-    "clean": "rimraf dist",
+    "clean": "rimraf dist && npm run format",
+    "format": "prettier --write \"**/*.ts\"",
+    "minerva:release": "standard-version",
     "release": "standard-version",
-    "minerva:release": "standard-version"
+    "test": "jest --notify"
   },
   "preferGlobal": true,
   "bin": {

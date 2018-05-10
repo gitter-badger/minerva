@@ -32,9 +32,7 @@ class MinervaRepo extends utilities_1.Application {
                 .action(() => __awaiter(this, void 0, void 0, function* () {
                 yield utility.outputPull();
             }));
-            this.commander
-                .command('branch', 'Manages the current branch.')
-                .alias('b');
+            this.commander.command('branch', 'Manages the current branch.').alias('b');
         });
     }
 }

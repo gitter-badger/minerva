@@ -18,14 +18,16 @@ class Minerva extends utilities_1.Application {
     boot() {
         return __awaiter(this, void 0, void 0, function* () {
             this.commander
-                .command('repo', 'Manage the current source code repository.').alias('r');
+                .command('repo', 'Manage the current source code repository.')
+                .alias('r');
             this.commander
-                .command('versioning', 'Adds and Publishes versions of the current application.').alias('v');
+                .command('versioning', 'Adds and Publishes versions of the current application.')
+                .alias('v');
             this.commander
                 .command('update')
                 .description('Updates Minerva to the latest version.')
                 .action(() => __awaiter(this, void 0, void 0, function* () {
-                yield (new utilities_1.MinervaUtility()).outputUpdate();
+                yield new utilities_1.MinervaUtility().outputUpdate();
             }));
             this.commander
                 .command('init')
@@ -52,9 +54,9 @@ class Minerva extends utilities_1.Application {
                             { name: 'Yarn', value: 'yarn' },
                             { name: 'NPM', value: 'npm' },
                         ],
-                    }
+                    },
                 ]);
-                yield (new utilities_1.MinervaUtility()).init(answers);
+                yield new utilities_1.MinervaUtility().init(answers);
             }));
         });
     }

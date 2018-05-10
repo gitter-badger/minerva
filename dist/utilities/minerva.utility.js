@@ -8,7 +8,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const fs = require("fs");
+const fs = require('fs');
 const utility_1 = require("./utility");
 const npmAddScript = require('npm-add-script');
 class MinervaUtility extends utility_1.Utility {
@@ -26,10 +26,9 @@ class MinervaUtility extends utility_1.Utility {
             }
             try {
                 this.output('Installing release script: Utilising standard-version to publish changes.');
-                npmAddScript({ key: "minerva:release", value: "standard-version" });
+                npmAddScript({ key: 'minerva:release', value: 'standard-version' });
             }
-            catch (e) {
-            }
+            catch (e) { }
         });
     }
     outputUpdate() {

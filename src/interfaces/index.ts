@@ -1,1 +1,1 @@
-export {RepoInterface} from './repo.interface';
+export { RepoInterface } from './repo.interface';

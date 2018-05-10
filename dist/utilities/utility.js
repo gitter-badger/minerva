@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const fs = require("fs");
+const fs = require('fs');
 const cmd = require("node-cmd");
 const detectInstalled = require('detect-installed');
 class Utility {
@@ -12,8 +12,7 @@ class Utility {
             const settingsFileContents = fs.readFileSync('.minerva.json');
             this.settings = JSON.parse(settingsFileContents);
         }
-        catch (e) {
-        }
+        catch (e) { }
         if (this.settings.packageManager) {
             this.packageManager = this.settings.packageManager;
         }

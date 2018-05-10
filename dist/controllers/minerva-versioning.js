@@ -49,7 +49,7 @@ class MinervaVersioning extends index_1.Application {
                         name: 'includeUncommitted',
                         message: 'Include all uncommitted files?',
                         default: true,
-                    }
+                    },
                 ]);
                 yield utility.add(answers['type'], answers['title'], answers['description'], answers['includeUncommitted']);
             }));

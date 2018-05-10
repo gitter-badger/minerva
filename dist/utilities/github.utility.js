@@ -65,7 +65,10 @@ class GithubUtility extends utility_1.Utility {
             const fromBranch = from || 'master';
             yield this.checkout(fromBranch);
             yield this.pull();
-            return this.run(`git checkout -b ${branchName.toLowerCase().split(' ').join('-')}`);
+            return this.run(`git checkout -b ${branchName
+                .toLowerCase()
+                .split(' ')
+                .join('-')}`);
         });
     }
     outputMergeIn(from, to) {

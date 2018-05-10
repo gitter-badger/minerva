@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const fs = require("fs");
+const fs = require('fs');
 const program = require("commander");
 const { prompt } = require('inquirer');
 class Application {
@@ -10,8 +10,7 @@ class Application {
         this.applicationCommander = commander || program;
         this.setVersionAndDescription();
         this.boot().then(() => {
-            this.applicationCommander
-                .parse(process.argv);
+            this.applicationCommander.parse(process.argv);
         });
     }
     get packageJson() {
