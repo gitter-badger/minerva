@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.6.6"></a>
+## [0.6.6](https://github.com/sisk-technology-group-ltd/minerva/compare/v0.6.5...v0.6.6) (2018-05-11)
+
+
+### Bug Fixes
+
+* **settings check:** Before loading a package manager from the settings file we first check to make sure that settings are loaded into memory. ([dbe4184](https://github.com/sisk-technology-group-ltd/minerva/commit/dbe4184))
+
+
+
 <a name="0.6.5"></a>
 ## [0.6.5](https://github.com/sisk-technology-group-ltd/minerva/compare/v0.6.4...v0.6.5) (2018-05-10)
 
