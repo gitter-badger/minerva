@@ -15,7 +15,7 @@ export abstract class Utility {
       this.settings = JSON.parse(settingsFileContents) as ConfigEntity;
     } catch (e) {}
 
-    if (this.settings.packageManager) {
+    if (this.settings && this.settings.packageManager) {
       this.packageManager = this.settings.packageManager;
     } else if (this.packageInstalled('yarn')) {
       this.packageManager = 'yarn';

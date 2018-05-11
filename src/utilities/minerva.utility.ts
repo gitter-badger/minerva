@@ -1,6 +1,7 @@
 const fs = require('fs');
 import { ConfigEntity } from '../entities/config.entity';
 import { Utility } from './utility';
+import { GithubUtility } from './github.utility';
 
 const npmAddScript = require('npm-add-script');
 
