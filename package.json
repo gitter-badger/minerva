@@ -4,9 +4,10 @@
   "description": "A command line tool to manage and automate the standard workflows we use.",
   "main": "dist/controllers/minerva.js",
   "scripts": {
-    "build": "yarn run clean && tsc",
+    "build": "npm run minerva:docs && yarn run clean && tsc",
     "clean": "rimraf dist && npm run format",
     "format": "prettier --write \"**/*.ts\"",
+    "minerva:docs": "rimraf docs && typedoc --theme markdown --mdEngine gitbook --mode file --exclude \"**/*.spec.ts\" --out docs/ src/",
     "minerva:release": "standard-version",
     "release": "standard-version",
     "test": "jest --notify"
@@ -33,6 +34,8 @@
     "rimraf": "2.6.2",
     "standard-version": "4.3.0",
     "ts-jest": "22.4.4",
+    "typedoc": "0.11.1",
+    "typedoc-plugin-markdown": "1.1.9",
     "typescript": "2.8.3"
   },
   "jest": {
